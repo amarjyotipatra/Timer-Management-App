@@ -50,7 +50,7 @@ const HistoryScreen: React.FC<HistoryScreenProps> = () => {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={styles.logItem}>
-            <Text style={styles.logTitle}>{item.name}</Text>
+            <Text style={styles.logTitle}>{item.timerName}</Text>
             <Text>Duration: {Math.floor(item.duration / 60)}m {item.duration % 60}s</Text>
             <Text>Completed: {formatDate(item.completedAt)}</Text>
           </View>
