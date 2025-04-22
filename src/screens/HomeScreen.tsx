@@ -32,6 +32,14 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
     fetchTimers();
   }, []);
 
+  // Handler stubs for timer actions
+  const handleStartTimer = (id: string) => {};
+  const handlePauseTimer = (id: string) => {};
+  const handleResetTimer = (id: string) => {};
+  const handleStartAllInCategory = (category: string) => {};
+  const handlePauseAllInCategory = (category: string) => {};
+  const handleResetAllInCategory = (category: string) => {};
+
   if (loading) {
     return (
       <View style={styles.centered}>
@@ -48,7 +56,17 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
         <Text>No timers found. Add a timer to get started.</Text>
       ) : (
         Object.entries(timersByCategory).map(([category, timers]) => (
-          <CategoryGroup key={category} category={category} timers={timers} />
+          <CategoryGroup
+            key={category}
+            category={category}
+            timers={timers}
+            onStartTimer={handleStartTimer}
+            onPauseTimer={handlePauseTimer}
+            onResetTimer={handleResetTimer}
+            onStartAllInCategory={handleStartAllInCategory}
+            onPauseAllInCategory={handlePauseAllInCategory}
+            onResetAllInCategory={handleResetAllInCategory}
+          />
         ))
       )}
     </View>
